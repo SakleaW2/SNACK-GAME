@@ -1,0 +1,102 @@
+﻿<Window x:Class="SNACK_GAME.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Snack Game"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="Black">
+    <Window.Resources>
+        <DropShadowEffect x:Key="GlowEffect"
+                          Color="LimeGreen"
+                          BlurRadius="15"
+                          ShadowDepth="0"
+                          Opacity="0.8" />
+    </Window.Resources>
+    <Grid>
+
+        <!-- Игра -->
+        <Border x:Name="GameBorder"
+                BorderThickness="8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="White"
+                CornerRadius="15">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#FF4CAF50"
+                                  Offset="0" />
+                    <GradientStop Color="#FF81C784"
+                                  Offset="0.5" />
+                    <GradientStop Color="#FF2E7D32"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Canvas Name="GameCanvas" />
+        </Border>
+
+        <!-- Очки -->
+        <TextBlock Name="ScoreText"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="LimeGreen"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,0"
+                   Text="Очки: 0"
+                   Effect="{StaticResource GlowEffect}" />
+
+        <!-- Рекорд -->
+        <TextBlock Name="HighScoreText"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="LightGreen"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   Margin="0,20,20,0"
+                   Text="Рекорд: 0"
+                   Effect="{StaticResource GlowEffect}" />
+
+        <!-- Пауза -->
+        <TextBlock x:Name="lblPause"
+                   Text="Пауза"
+                   FontSize="48"
+                   FontWeight="Black"
+                   Foreground="Red"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="Hidden"
+                   Effect="{StaticResource GlowEffect}" />
+
+        <!-- Кнопка "Выход" -->
+        <Button x:Name="ExitButton"
+                Content="ВЫХОД"
+                FontSize="18"
+                FontWeight="Bold"
+                Width="110"
+                Height="45"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,20,20"
+                Click="ExitButton_Click"
+                Focusable="False"
+                Background="#FF4CAF50"
+                Foreground="White"
+                BorderBrush="DarkGreen"
+                BorderThickness="2"
+                Cursor="Hand" />
+
+        <!-- Инструкция -->
+        <TextBlock FontSize="18"
+                   Foreground="LightGray"
+                   TextWrapping="NoWrap"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Margin="20,0,0,20"
+                   Height="30"
+                   Width="Auto"
+                   Text="Управление: ↑ ↓ ← → — движение змейки | Пробел — пауза | Enter — новая игра | Esc — выход"
+                   Effect="{StaticResource GlowEffect}" />
+    </Grid>
+</Window>
